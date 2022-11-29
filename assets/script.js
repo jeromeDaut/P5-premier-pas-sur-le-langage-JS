@@ -19,7 +19,7 @@ const slides = [
 
 let index = 0;
 
-let container = document.querySelector('#banner')
+let container = document.getElementById('banner');
 
 const display = ()=>{
 	container.innerHTML =	"<a href='' id='arrow_left'><img class='arrow arrow_left' src='./assets/images/arrow_left.png'></a>",
@@ -33,18 +33,25 @@ const display = ()=>{
 // selector
 let arrowLeft = document.querySelector('#arrow_left');
 arrowLeft.addEventListener('click',() => {
+		index -= 1;
+		if (index === -1) {
+			index = slides.length -1;
+		}
+
+		
 
 	});
 	
-let arrowRight = document.querySelector('#arrow_right');
-arrowRight.addEventListener('click',()=>{
-	alert("go right");
-   });
+// let arrowRight = document.querySelector('#arrow_right');
+// arrowRight.addEventListener('click',()=>{
+// 	alert("go right");
+//    });
 
 
 
    let dots = document.querySelector('.dots');
    let dotSelected = document.querySelector('.dot');
-   dots.innerHTML = "<span class='dot dot_selected '></span><span class='dot'></span><span class='dot'></span><span class='dot'></span>";
+//    dots.innerHTML = "<span class='dot dot_selected '></span><span class='dot'></span><span class='dot'></span><span class='dot'></span>";
 }
 display();
+console.log("test");
