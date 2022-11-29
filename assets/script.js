@@ -1,24 +1,6 @@
-// const slides = [
-// 	{
-// 		"image":"slide1.jpg",
-// 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-// 	},
-// 	{
-// 		"image":"slide2.jpg",
-// 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-// 	},
-// 	{
-// 		"image":"slide3.jpg",
-// 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-// 	},
-// 	{
-// 		"image":"slide4.png",
-// 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-// 	}
-// ]
 const slides = [
 	{
-		"image":"./images/slideshow/slide1.jpg",
+		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
@@ -35,27 +17,34 @@ const slides = [
 	}
 ]
 
-// selector
-// const sliders = document.querySelectorAll("#banner")
-// let banner = document.querySelector('#banner');
-let arrowLeft = document.querySelector('#arrow_left');
-let arrowRight = document.querySelector('#arrow_right');
-let slideTwo = document.createElement('img');
-// dots
-let dots = document.querySelector('.dots');
-let dot_selected = document.querySelector('.dot')
-dots.innerHTML = "<span class='dot dot_selected '></span><span class='dot'></span><span class='dot'></span><span class='dot'></span>";
+let index = 0;
 
+let container = document.querySelector('#banner')
+
+const display = ()=>{
+	container.innerHTML =	"<a href='' id='arrow_left'><img class='arrow arrow_left' src='./assets/images/arrow_left.png'></a>",
+							"<a href='' id='arrow_right'><img class='arrow arrow_left' src='./assets/images/arrow_right.png'></a>",
+							"<img class='banner-img' src='' alt='Banner Print-it'>",
+							"<p>Impressions tous formats <span>en boutique et en ligne</span></p>",
+							"<div class='dots'><div>"
+
+
+
+// selector
+let arrowLeft = document.querySelector('#arrow_left');
 arrowLeft.addEventListener('click',() => {
-		alert("a gauche");
-		// for (let i = 0 > )
+
 	});
 	
-
+let arrowRight = document.querySelector('#arrow_right');
 arrowRight.addEventListener('click',()=>{
 	alert("go right");
-	// arrowRight();
    });
 
 
 
+   let dots = document.querySelector('.dots');
+   let dotSelected = document.querySelector('.dot');
+   dots.innerHTML = "<span class='dot dot_selected '></span><span class='dot'></span><span class='dot'></span><span class='dot'></span>";
+}
+display();
