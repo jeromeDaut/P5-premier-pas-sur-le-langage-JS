@@ -22,36 +22,47 @@ let index = 0;
 let container = document.getElementById('banner');
 
 const display = ()=>{
-	container.innerHTML =	"<a href='' id='arrow_left'><img class='arrow arrow_left' src='./assets/images/arrow_left.png'></a>",
-							"<a href='' id='arrow_right'><img class='arrow arrow_left' src='./assets/images/arrow_right.png'></a>",
-							"<img class='banner-img' src='' alt='Banner Print-it'>",
-							"<p>Impressions tous formats <span>en boutique et en ligne</span></p>",
-							"<div class='dots'><div>"
+	container.innerHTML =	
+	`<a href="#" id="arrow_left"><img class="arrow arrow_left" src="./assets/images/arrow_left.png"></a>
+	<a href="#" id="arrow_right"><img class="arrow arrow_right" src="./assets/images/arrow_right.png"></a>
+
+	<img class="banner-img" src="./assets/images/slideshow/${slides[index].image}" alt="Banner Print-it">
+	<p>${slides[index].tagLine}</p>
+	<div class="dots">
+	</div>`
 
 
 
-// selector
-let arrowLeft = document.querySelector('#arrow_left');
-arrowLeft.addEventListener('click',() => {
-		index -= 1;
+
+	let arrowLeft = document.querySelector('#arrow_left');
+	arrowLeft.addEventListener('click',() => {
+	index -= 1;
 		if (index === -1) {
 			index = slides.length -1;
 		}
-
-		
-
+		display();
 	});
 	
-// let arrowRight = document.querySelector('#arrow_right');
-// arrowRight.addEventListener('click',()=>{
-// 	alert("go right");
-//    });
+	let arrowRight = document.querySelector('#arrow_right');
+	arrowRight.addEventListener('click',()=>{
+	index ++;
+		if(index === slides.length){
+			index = 0;
+		}
+		display();
+   });
 
 
-
-   let dots = document.querySelector('.dots');
-   let dotSelected = document.querySelector('.dot');
-//    dots.innerHTML = "<span class='dot dot_selected '></span><span class='dot'></span><span class='dot'></span><span class='dot'></span>";
+// dots
+   let dots = document.getElementsByClassName('dots')[0];
+   
+   for (let i = 0; i < slides.length; i++) {
+	 if (index === i) {
+		dots.innerHTML += `<a class="dot dot_selected" href="#"></a>`
+	 } else {
+		dots.innerHTML += `<a class="dot" href="#" onclick="index=${i};display()"></a>`
+	 }
+	
+   }
 }
 display();
-console.log("test");
